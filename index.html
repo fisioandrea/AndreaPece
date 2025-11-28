@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Event Manager | Portfolio</title>
+    <meta name="description" content="Portfolio of a major sports event manager, showcasing expertise in orchestrating unforgettable moments in sports and entertainment.">
+    <meta name="keywords" content="sports event manager, event management, portfolio, sports marketing, operations, logistics">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Custom styles for the project */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark Gray */
+            color: #E5E7EB; /* Light Gray */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .accent-color {
+            color: #EF4444; /* Fire Red */
+        }
+        .bg-accent {
+            background-color: #EF4444;
+        }
+        .border-accent {
+            border-color: #EF4444;
+        }
+        .video-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #EF4444;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        .portfolio-card:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        .portfolio-card:hover img {
+            transform: scale(1.05);
+        }
+        /* Style for the hidden header */
+        .header-hidden {
+            transform: translateY(-100%);
+        }
+        .gallery-item img {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            filter: brightness(0.8);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <header id="header" class="bg-gray-900 bg-opacity-80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold tracking-wider text-white">ANDREA<span class="accent-color">PECE</span></a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link text-white hover:accent-color" data-lang-key="nav_home">Home</a>
+                <a href="#about" class="nav-link text-white hover:accent-color" data-lang-key="nav_about">About Me</a>
+                <a href="#portfolio" class="nav-link text-white hover:accent-color" data-lang-key="nav_portfolio">Portfolio</a>
+                <a href="#skills" class="nav-link text-white hover:accent-color" data-lang-key="nav_skills">Skills</a>
+                <a href="#gallery" class="nav-link text-white hover:accent-color" data-lang-key="nav_gallery">Gallery</a>
+                <a href="#contact" class="nav-link text-white hover:accent-color" data-lang-key="nav_contact">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <select id="language-switcher" class="bg-gray-800 border border-gray-700 text-white text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5">
+                        <option value="en" selected>English</option>
+                        <option value="it">Italiano</option>
+                    </select>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-white text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900">
+            <a href="#home" class="block py-2 px-6 text-white hover:bg-gray-800" data-lang-key="nav_home">Home</a>
+            <a href="#about" class="block py-2 px-6 text-white hover:bg-gray-800" data-lang-key="nav_about">About Me</a>
+            <a href="#portfolio" class="block py-2 px-6 text-white hover:bg-gray-800" data-lang-key="nav_portfolio">Portfolio</a>
+            <a href="#skills" class="block py-2 px-6 text-white hover:bg-gray-800" data-lang-key="nav_skills">Skills</a>
+            <a href="#gallery" class="block py-2 px-6 text-white hover:bg-gray-800" data-lang-key="nav_gallery">Gallery</a>
+            <a href="#contact" class="block py-2 px-6 text-white hover:bg-gray-800" data-lang-key="nav_contact">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="h-screen relative flex items-center justify-center text-center overflow-hidden">
+            <video autoplay loop muted playsinline class="video-bg">
+                <source src="https://i.imgur.com/80NUSCh.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="absolute inset-0 bg-black opacity-60"></div>
+            <div class="relative z-10 px-6">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white uppercase tracking-wider" data-lang-key="home_slogan">I orchestrate unforgettable moments in sports and entertainment.</h1>
+                <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-gray-300" data-lang-key="home_intro">I bring a unique blend of strategic leadership and out-of-the-box thinking to every project. My mission is to not just manage events, but to craft groundbreaking experiences that captivate audiences and exceed expectations.</p>
+                <a href="#portfolio" class="mt-8 inline-block bg-accent hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300" data-lang-key="home_cta">View My Work</a>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 md:py-32 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-5 gap-12 items-center">
+                    <div class="md:col-span-2">
+                        <img src="https://i.imgur.com/3mMaeAd.jpg" alt="Event Manager Portrait" class="rounded-lg shadow-2xl w-full">
+                    </div>
+                    <div class="md:col-span-3">
+                        <h2 class="text-3xl md:text-4xl font-bold" data-lang-key="about_title">My Path: From Data to the Finish Line</h2>
+                        <p class="text-xl accent-color font-medium mt-2 mb-6" data-lang-key="about_subtitle">Event Manager & Lecturer at University of Rome Tor Vergata</p>
+                        <div class="space-y-4 text-gray-300 text-lg leading-relaxed" data-lang-key="about_text">
+                            <p>My journey to becoming an event manager is unconventional, rooted in a passion for precision and a deep-seated desire to create exceptional experiences. I started my career as a researcher, where I honed my skills in data analysis and meticulous attention to detail.</p>
+                            <p>Later, working in a hospital environment, I developed my ability to remain calm under pressure, make critical decisions, and lead teams through complex and high-stakes situations. This unique background is the core of my approach. I don't just follow blueprints; I use data-driven insights and my knack for innovative problem-solving to redefine what's possible in event management.</p>
+                            <p>I am a leader who empowers my team, a strategist who sees beyond the logistics, and a creator who is always searching for the next groundbreaking idea. My goal is to transform every challenge into an opportunity for innovation and every event into a lasting memory.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="py-20 md:py-32 bg-gray-800">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-2" data-lang-key="portfolio_title">Showcase</h2>
+                <p class="text-lg text-gray-400 mb-12" data-lang-key="portfolio_subtitle">A selection of my flagship projects.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="portfolio-card bg-gray-900 rounded-lg overflow-hidden shadow-lg group">
+                        <div class="relative">
+                            <img src="https://i.imgur.com/OmOHPNd.jpg" alt="Milan-Cortina Winter Olympics" class="w-full h-60 object-cover transition-transform duration-300">
+                            <div class="portfolio-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-6 text-center opacity-0 transition-opacity duration-300">
+                                <h4 class="text-xl font-bold mb-2" data-lang-key="p1_challenge_title">The Challenge</h4>
+                                <p class="text-sm text-gray-300" data-lang-key="p1_challenge_text">Managing logistics across multiple, geographically dispersed venues with extreme weather conditions.</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2" data-lang-key="p1_title">Milan-Cortina Winter Olympics</h3>
+                            <p class="text-gray-400 mb-4" data-lang-key="p1_role">Head of Operations for XYZ Venues</p>
+                            <p class="text-gray-300" data-lang-key="p1_solution_text">Implemented a centralized, data-driven logistics platform for real-time tracking and resource allocation, ensuring seamless operations.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card bg-gray-900 rounded-lg overflow-hidden shadow-lg group">
+                         <div class="relative">
+                            <img src="https://i.imgur.com/a7Qmovo.jpg" alt="Formula E" class="w-full h-60 object-cover transition-transform duration-300">
+                            <div class="portfolio-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-6 text-center opacity-0 transition-opacity duration-300">
+                                <h4 class="text-xl font-bold mb-2" data-lang-key="p2_challenge_title">The Challenge</h4>
+                                <p class="text-sm text-gray-300" data-lang-key="p2_challenge_text">Creating a premium fan experience in a temporary urban circuit with limited space and high-security demands.</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2" data-lang-key="p2_title">Formula E World Championship</h3>
+                            <p class="text-gray-400 mb-4" data-lang-key="p2_role">Senior Event Director</p>
+                            <p class="text-gray-300" data-lang-key="p2_solution_text">Designed a modular infrastructure and a tiered ticketing system with exclusive digital content access to enhance fan engagement.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card bg-gray-900 rounded-lg overflow-hidden shadow-lg group">
+                         <div class="relative">
+                            <img src="https://i.imgur.com/Mpq1Glh.jpg" alt="Rome Marathon" class="w-full h-60 object-cover transition-transform duration-300">
+                            <div class="portfolio-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-6 text-center opacity-0 transition-opacity duration-300">
+                                <h4 class="text-xl font-bold mb-2" data-lang-key="p3_challenge_title">The Challenge</h4>
+                                <p class="text-sm text-gray-300" data-lang-key="p3_challenge_text">Coordinating thousands of volunteers and ensuring the safety of 15,000+ runners across a historic city center.</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2" data-lang-key="p3_title">Rome Marathon</h3>
+                            <p class="text-gray-400 mb-4" data-lang-key="p3_role">Race Operations Manager</p>
+                            <p class="text-gray-300" data-lang-key="p3_solution_text">Developed a gamified mobile app for volunteer coordination and a real-time runner tracking system for medical and support teams.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card bg-gray-900 rounded-lg overflow-hidden shadow-lg group">
+                         <div class="relative">
+                            <img src="https://i.imgur.com/c0xfaw8.jpg" alt="Global Champions Tour" class="w-full h-60 object-cover transition-transform duration-300">
+                            <div class="portfolio-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-6 text-center opacity-0 transition-opacity duration-300">
+                                <h4 class="text-xl font-bold mb-2" data-lang-key="p4_challenge_title">The Challenge</h4>
+                                <p class="text-sm text-gray-300" data-lang-key="p4_challenge_text">Ensuring top-tier equestrian facilities and logistics in a high-profile, multi-location international circuit.</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2" data-lang-key="p4_title">Global Champions Tour</h3>
+                            <p class="text-gray-400 mb-4" data-lang-key="p4_role">Venue Operations Lead</p>
+                            <p class="text-gray-300" data-lang-key="p4_solution_text">Deployed a standardized operational kit and a mobile command center for consistent quality and rapid deployment across venues.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card bg-gray-900 rounded-lg overflow-hidden shadow-lg group">
+                         <div class="relative">
+                            <img src="https://i.imgur.com/OZBIqAo.jpg" alt="Via Pacis Half Marathon" class="w-full h-60 object-cover transition-transform duration-300">
+                            <div class="portfolio-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-6 text-center opacity-0 transition-opacity duration-300">
+                                <h4 class="text-xl font-bold mb-2" data-lang-key="p5_challenge_title">The Challenge</h4>
+                                <p class="text-sm text-gray-300" data-lang-key="p5_challenge_text">Designing a safe race course through culturally sensitive areas, involving multiple international delegations.</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2" data-lang-key="p5_title">Via Pacis Half Marathon</h3>
+                            <p class="text-gray-400 mb-4" data-lang-key="p5_role">Course & Safety Coordinator</p>
+                            <p class="text-gray-300" data-lang-key="p5_solution_text">Collaborated with city authorities and cultural bodies to create a phased road closure plan and a multi-lingual communication system.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card bg-gray-900 rounded-lg overflow-hidden shadow-lg group">
+                         <div class="relative">
+                            <img src="https://i.imgur.com/3s6AbYj.jpg" alt="Other Projects" class="w-full h-60 object-cover transition-transform duration-300">
+                            <div class="portfolio-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-6 text-center opacity-0 transition-opacity duration-300">
+                                <h4 class="text-xl font-bold mb-2" data-lang-key="p6_challenge_title">The Challenge</h4>
+                                <p class="text-sm text-gray-300" data-lang-key="p6_challenge_text">Adapting to diverse event formats, from corporate hospitality to public sporting festivals.</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2" data-lang-key="p6_title">Other Notable Projects</h3>
+                            <p class="text-gray-400 mb-4" data-lang-key="p6_role">Various Roles</p>
+                            <p class="text-gray-300" data-lang-key="p6_solution_text">A versatile and scalable management approach focused on core principles of safety, efficiency, and attendee experience.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card bg-gray-900 rounded-lg overflow-hidden shadow-lg group">
+                        <div class="relative">
+                            <img src="https://i.imgur.com/6VeN8aO.jpg" alt="UEFA 2020" class="w-full h-60 object-cover transition-transform duration-300">
+                            <div class="portfolio-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-6 text-center opacity-0 transition-opacity duration-300">
+                                <h4 class="text-xl font-bold mb-2" data-lang-key="p7_challenge_title">The Challenge</h4>
+                                <p class="text-sm text-gray-300" data-lang-key="p7_challenge_text">Placeholder challenge text.</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2" data-lang-key="p7_title">UEFA 2020</h3>
+                            <p class="text-gray-400 mb-4" data-lang-key="p7_role">Placeholder role.</p>
+                            <p class="text-gray-300" data-lang-key="p7_solution_text">Placeholder solution text.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card bg-gray-900 rounded-lg overflow-hidden shadow-lg group">
+                        <div class="relative">
+                            <img src="https://i.imgur.com/t7Pg9q3.jpg" alt="Christmas Tree" class="w-full h-60 object-cover transition-transform duration-300">
+                            <div class="portfolio-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-6 text-center opacity-0 transition-opacity duration-300">
+                                <h4 class="text-xl font-bold mb-2" data-lang-key="p8_challenge_title">The Challenge</h4>
+                                <p class="text-sm text-gray-300" data-lang-key="p8_challenge_text">Placeholder challenge text.</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2" data-lang-key="p8_title">Christmas Tree</h3>
+                            <p class="text-gray-400 mb-4" data-lang-key="p8_role">Placeholder role.</p>
+                            <p class="text-gray-300" data-lang-key="p8_solution_text">Placeholder solution text.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card bg-gray-900 rounded-lg overflow-hidden shadow-lg group">
+                        <div class="relative">
+                            <img src="https://i.imgur.com/oEuSbwR.jpg" alt="Concerts" class="w-full h-60 object-cover transition-transform duration-300">
+                            <div class="portfolio-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-6 text-center opacity-0 transition-opacity duration-300">
+                                <h4 class="text-xl font-bold mb-2" data-lang-key="p9_challenge_title">The Challenge</h4>
+                                <p class="text-sm text-gray-300" data-lang-key="p9_challenge_text">Placeholder challenge text.</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2" data-lang-key="p9_title">Concerts</h3>
+                            <p class="text-gray-400 mb-4" data-lang-key="p9_role">Placeholder role.</p>
+                            <p class="text-gray-300" data-lang-key="p9_solution_text">Placeholder solution text.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-20 md:py-32 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-12" data-lang-key="skills_title">My Core Expertise</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-center md:text-left" data-lang-key="skills_hard_title">Hard Skills</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start"><i class="fas fa-check-circle accent-color mt-1 mr-3"></i> <span data-lang-key="skill_1">Project Management & Execution</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle accent-color mt-1 mr-3"></i> <span data-lang-key="skill_2">Data Analysis & Strategic Planning</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle accent-color mt-1 mr-3"></i> <span data-lang-key="skill_3">Budget & Financial Management</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle accent-color mt-1 mr-3"></i> <span data-lang-key="skill_4">Logistics & Operations</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle accent-color mt-1 mr-3"></i> <span data-lang-key="skill_5">Contract Negotiation & Vendor Management</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-center md:text-left" data-lang-key="skills_soft_title">Soft Skills</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start"><i class="fas fa-star accent-color mt-1 mr-3"></i> <span data-lang-key="skill_6">Innovative Leadership</span></li>
+                            <li class="flex items-start"><i class="fas fa-star accent-color mt-1 mr-3"></i> <span data-lang-key="skill_7">Effective Communication</span></li>
+                            <li class="flex items-start"><i class="fas fa-star accent-color mt-1 mr-3"></i> <span data-lang-key="skill_8">Problem-Solving & Critical Thinking</span></li>
+                            <li class="flex items-start"><i class="fas fa-star accent-color mt-1 mr-3"></i> <span data-lang-key="skill_9">Team Empowerment</span></li>
+                            <li class="flex items-start"><i class="fas fa-star accent-color mt-1 mr-3"></i> <span data-lang-key="skill_10">Attention to Detail</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="press" class="py-20 md:py-32 bg-gray-800">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12" data-lang-key="press_title">What the Press Says</h2>
+                <div class="max-w-3xl mx-auto bg-gray-900 p-8 rounded-lg shadow-lg">
+                    <i class="fas fa-quote-left text-3xl accent-color mb-4"></i>
+                    <p class="text-xl italic text-gray-300" data-lang-key="press_quote">"An innovative approach that is setting a new standard for major sporting events. The execution was flawless, a masterclass in modern event management."</p>
+                </div>
+                <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/t8bWZE6.jpg" alt="Press photo 1"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/6w5UoDA.jpg" alt="Press photo 2"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/El1IWwv.jpg" alt="Press photo 3"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/6VXDTxZ.jpg" alt="Press photo 4"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/np7TwLG.jpg" alt="Press photo 5"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/h87qMCi.jpg" alt="Press photo 6"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/e1mfqDV.jpg" alt="Press photo 7"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://placehold.co/400x300/111827/FFFFFF?text=Press+8" alt="Press photo 8"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://placehold.co/400x300/111827/FFFFFF?text=Press+9" alt="Press photo 9"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://placehold.co/400x300/111827/FFFFFF?text=Press+10" alt="Press photo 10"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="py-20 md:py-32 bg-gray-900">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12" data-lang-key="gallery_title">Gallery</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/vi7if8Z.jpg" alt="Gallery photo 1"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/sKWZEM1.jpg" alt="Gallery photo 2"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/TQ491rX.jpg" alt="Gallery photo 3"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/4URBSRV.jpg" alt="Gallery photo 4"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/VEGQv3H.jpg" alt="Gallery photo 5"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/G8CUamL.jpg" alt="Gallery photo 6"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/veQdvwZ.jpg" alt="Gallery photo 7"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/YOUCT45.jpg" alt="Gallery photo 8"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/2X7yUJR.jpg" alt="Gallery photo 9"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/tF2SLNa.jpg" alt="Gallery photo 10"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/pXr0g6e.jpg" alt="Gallery photo 11"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/8L5Hl92.jpg" alt="Gallery photo 12"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/PbLobL8.jpg" alt="Gallery photo 13"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/IktDDrN.jpg" alt="Gallery photo 14"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/2n4Qw7X.jpg" alt="Gallery photo 15"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/JGarrhg.jpg" alt="Gallery photo 16"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/JXIkOMN.jpg" alt="Gallery photo 17"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/4jdDeN3.jpg" alt="Gallery photo 18"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/scaurgZ.jpg" alt="Gallery photo 19"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/0v7UPRM.jpg" alt="Gallery photo 20"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/W61ewZo.jpg" alt="Gallery photo 21"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/Y5W0no2.jpg" alt="Gallery photo 22"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/PjhBtLt.jpg" alt="Gallery photo 23"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/7NA2xu4.jpg" alt="Gallery photo 24"></div>
+                    <div class="gallery-item"><img class="h-auto max-w-full rounded-lg" src="https://i.imgur.com/IAnH1go.jpg" alt="Gallery photo 25"></div>
+                </div>
+                
+                <h3 class="text-2xl md:text-3xl font-bold mt-20 mb-6" data-lang-key="gallery_videos_title">Videos</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="aspect-video">
+                        <video controls playsinline class="w-full h-full rounded-lg shadow-lg" src="https://i.imgur.com/fVrpuuD.mp4">
+                             Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="aspect-video">
+                        <video controls playsinline class="w-full h-full rounded-lg shadow-lg" src="https://i.imgur.com/HZvfZAX.mp4">
+                             Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="aspect-video">
+                        <video controls playsinline class="w-full h-full rounded-lg shadow-lg" src="https://i.imgur.com/k4NCl58.mp4">
+                             Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="aspect-video">
+                        <video controls playsinline class="w-full h-full rounded-lg shadow-lg" src="https://i.imgur.com/izeeNy0.mp4">
+                             Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="aspect-video">
+                        <video controls playsinline class="w-full h-full rounded-lg shadow-lg" src="https://i.imgur.com/S6LlEYm.mp4">
+                             Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="aspect-video">
+                        <video controls playsinline class="w-full h-full rounded-lg shadow-lg" src="https://i.imgur.com/d9r8nBU.mp4">
+                             Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog" class="py-20 md:py-32 bg-gray-800 text-center">
+             <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-lang-key="blog_title">Blog / News</h2>
+                <p class="text-2xl text-gray-400" data-lang-key="blog_coming_soon">Content Coming Soon</p>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 md:py-32 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold" data-lang-key="contact_title">Let's Collaborate</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-400" data-lang-key="contact_text">Are you looking for a leader to elevate your next major sports event? Get in touch to discuss how my unique approach can drive innovation and success.</p>
+                </div>
+                <div class="max-w-lg mx-auto mt-12">
+                    <div class="flex flex-col items-center text-center space-y-8">
+                        <div>
+                            <h4 class="text-xl font-bold" data-lang-key="contact_info_email">Email</h4>
+                            <a href="mailto:andrea.pece1973@gmail.com" class="text-lg text-gray-300 hover:accent-color">andrea.pece1973@gmail.com</a>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold" data-lang-key="contact_info_social">Follow Me</h4>
+                            <div class="mt-2">
+                                <a href="https://www.linkedin.com/in/andrea-pece-b41b4b38/" class="text-gray-400 hover:accent-color text-3xl"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                         <div>
+                            <h4 class="text-xl font-bold" data-lang-key="contact_info_whatsapp">WhatsApp</h4>
+                            <p class="text-lg text-gray-300">+393392192767</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black py-8">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p>&copy; 2024 ANDREA PECE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Language content
+        const translations = {
+            en: {
+                nav_home: "Home",
+                nav_about: "About Me",
+                nav_portfolio: "Portfolio",
+                nav_skills: "Skills",
+                nav_gallery: "Gallery",
+                nav_contact: "Contact",
+                home_slogan: "Orchestrate unforgettable moments in sports and entertainment.",
+                home_intro: "Bring a unique blend of strategic leadership and out-of-the-box thinking to every project. Not just manage events, but to craft groundbreaking experiences that captivate audiences and exceed expectations.",
+                home_cta: "View My Work",
+                about_title: "My Path: From Data to the Finish Line",
+                about_subtitle: "Event Manager & Lecturer at University of Rome Tor Vergata",
+                about_text: `<p>My path to becoming an event manager is unconventional, rooted in a passion for precision and a deep desire to create exceptional experiences. I began my career as a healthcare researcher, where I honed my data analysis skills and meticulous attention to detail. Working in a hospital setting with patients, I developed the ability to remain calm under pressure, make critical decisions, and lead teams in complex, high-stakes situations. This unique background is the core of my approach. I don't just follow established patterns; I use data-driven insights and my innovative problem-solving skills to redefine what is possible in event management. I am a leader who values my team, a strategist who sees beyond logistics, and a creative always in search of the next idea. My goal is to transform every challenge into an opportunity for innovation and every event into a lasting memory.</p><p>Alongside my work in the field, I share my experience as a Lecturer at the University of Rome Tor Vergata, shaping the next generation of managers.</p>`,
+                portfolio_title: "Showcase",
+                portfolio_subtitle: "A selection of my flagship projects.",
+                p1_title: "Milan-Cortina Winter Olympics",
+                p1_role: "Administrative Manager & PMO",
+                p1_challenge_title: "The Challenge",
+                p1_challenge_text: "A complex event in a complex region: the first widespread Olympic Games, covering an area of over 22,000 square kilometers.",
+                p1_solution_text: "The duty to build a functional and resilient operational structure that upholds Olympic standards and adheres to national laws, while ensuring no disruption to the essential services for residents in the host regions.",
+                p2_title: "Formula E World Championship",
+                p2_role: "Project Leader",
+                p2_challenge_title: "The Challenge",
+                p2_challenge_text: "Creating a premium fan experience in a temporary urban circuit with limited space and high-security demands.",
+                p2_solution_text: "To lead the event's design and the creation of a modular infrastructure within the historic city, merging the needs of sports, citizens, and businesses. To plan for a real and lasting tangible and intangible legacy from the earliest design phase.",
+                p3_title: "Rome Marathon",
+                p3_role: "Sport Area Manager",
+                p3_challenge_title: "The Challenge",
+                p3_challenge_text: "To deliver, in 5 months Italy's most attended sporting event.",
+                p3_solution_text: "To deliver a safe, memorable, and seamless event for every participant—from competitive athletes to amateurs and volunteers—by meticulously handling every detail from registration through to the post-race activities. The goal is to guarantee the event's financial sustainability while leveraging the marathon as a powerful marketing engine for the city to boost tourism and drive significant economic benefits. Furthermore, the aim is to solidify the race's sporting prestige by attracting elite runners and to create a positive social impact by involving the community and supporting charitable initiatives.",
+                p4_title: "Global Champions Tour",
+                p4_role: "Venue Operations Lead",
+                p4_challenge_title: "The Challenge",
+                p4_challenge_text: "Ensuring top-tier equestrian facilities and logistics in a high-profile, multi-location international circuit.",
+                p4_solution_text: "Deployed Deployed an exclusive event in a historic location in the heart of the city, making it freely accessible to everyone while maintaining the highest required international standards. To bring an equestrian sporting event back to the Circus Maximus for the first time in 2000 years. To guarantee the health, well-being, and safety of the animals.",
+                p5_title: "Via Pacis Half Marathon",
+                p5_role: "Sport Area Manager",
+                p5_challenge_title: "The Challenge",
+                p5_challenge_text: "Designing a major multicultural and multi-faith event, creating a race course that is both safe and inspiring as it navigates through culturally sensitive areas.",
+                p5_solution_text: "To collaborate with all religious and lay authorities in Rome to create a landmark sporting event, one that will be remembered as a moment of respect and collaboration between the various souls who inhabit and peacefully coexist in our cities.",
+                p6_title: "Other Notable Projects",
+                p6_role: "Various Roles",
+                p6_challenge_title: "The Challenge",
+                p6_challenge_text: "Adapting to diverse event formats, from corporate hospitality to public sporting festivals.",
+                p6_solution_text: "Concerts, gigs, E1 Series, Fly Europe, Rome’s Christmas tree, Ferrari, International Event bids, Giro d’Italia and many others. A versatile and scalable management approach focused on core principles of safety, efficiency, and attendee experience.",
+                p7_title: "UEFA Euro 2020",
+                p7_role: "Fan zones project manager",
+                p7_challenge_title: "The Challenge",
+                p7_challenge_text: "Managing operations for a major international tournament during a global pandemic.",
+                p7_solution_text: "Implemented strict health and safety protocols, ensuring a secure environment for spectators and fans without compromising the event's integrity.",
+                p8_title: "Rome's Christmas Tree",
+                p8_role: "Project Manager",
+                p8_challenge_title: "The Challenge",
+                p8_challenge_text: "Designing and installing the main Christmas Tree in Piazza Venezia, a high-visibility public project.",
+                p8_solution_text: "Coordinated the city officials and sponsors to deliver a celebrated and iconic holiday installation for the city.",
+                p9_title: "Major Concerts",
+                p9_role: "Project leader",
+                p9_challenge_title: "The Challenge",
+                p9_challenge_text: "Overseeing logistics and safety for large-scale concerts with tens of thousands of attendees.",
+                p9_solution_text: "Developed comprehensive crowd management and emergency response plans for major artists' tours.",
+                skills_title: "My Core Expertise",
+                skills_hard_title: "Hard Skills",
+                skills_soft_title: "Soft Skills",
+                skill_1: "Project Management & Execution",
+                skill_2: "Data Analysis & Strategic Planning",
+                skill_3: "Budget & Financial Management",
+                skill_4: "Logistics & Operations",
+                skill_5: "Contract Negotiation & Vendor Management",
+                skill_6: "Innovative Leadership",
+                skill_7: "Effective Communication",
+                skill_8: "Problem-Solving & Critical Thinking",
+                skill_9: "Team Empowerment",
+                skill_10: "Attention to Detail",
+                press_title: "What the Press Says",
+                press_quote: `"An innovative approach that is setting a new standard for major sporting events. The execution was flawless, a masterclass in modern event management."`,
+                gallery_title: "Gallery",
+                gallery_videos_title: "Videos",
+                gallery_videos_coming_soon: "Content Coming Soon",
+                blog_title: "Blog / News",
+                blog_coming_soon: "Content Coming Soon",
+                contact_title: "Let's Collaborate",
+                contact_text: "Are you looking for a leader to elevate your next major sports event? Get in touch to discuss how my unique approach can drive innovation and success.",
+                contact_info_email: "Email",
+                contact_info_social: "Follow Me",
+                contact_info_whatsapp: "WhatsApp",
+            },
+            it: {
+                nav_home: "Home",
+                nav_about: "Chi Sono",
+                nav_portfolio: "Portfolio",
+                nav_skills: "Competenze",
+                nav_gallery: "Galleria",
+                nav_contact: "Contatti",
+                home_slogan: "Orchestrare momenti indimenticabili nello sport e nell'intrattenimento.",
+                home_intro: "Portare un mix unico di leadership strategica e pensiero fuori dagli schemi in ogni progetto. Non solo gestire eventi, ma creare esperienze rivoluzionarie che catturino il pubblico e superino le aspettative.",
+                home_cta: "Scopri i Miei Lavori",
+                about_title: "Il Mio Percorso: Dai Dati al Traguardo",
+                about_subtitle: "Event Manager & Professore a contratto | Università di Roma Tor Vergata",
+                about_text: `<p>Il mio percorso per diventare un event manager non è convenzionale, radicato in una passione per la precisione e un profondo desiderio di creare esperienze eccezionali. Ho iniziato la mia carriera come ricercatore in ambito sanitario, dove ho affinato le mie capacità di analisi dei dati e la meticolosa attenzione ai dettagli. Lavorando in ospedale a contatto con i pazienti, ho sviluppato la capacità di mantenere la calma sotto pressione, prendere decisioni critiche e guidare team in situazioni complesse e ad alto rischio. Questo background unico è il nucleo del mio approccio. Non mi limito a seguire schemi prestabiliti; utilizzo intuizioni basate sui dati e la mia abilità nel problem-solving innovativo per ridefinire ciò che è possibile nella gestione degli eventi. Sono un leader che valorizza il mio team, uno stratega che vede oltre la logistica e un creativo sempre alla ricerca della prossima idea. Il mio obiettivo è trasformare ogni sfida in un'opportunità di innovazione e ogni evento in un ricordo duraturo.</p><p>Parallelamente alla mia attività sul campo, condivido la mia esperienza come Professore a contratto presso l'Università di Roma Tor Vergata, formando la prossima generazione di manager.</p>`,
+                portfolio_title: "Vetrina",
+                portfolio_subtitle: "Una selezione dei miei progetti di punta.",
+                p1_title: "Olimpiadi Invernali Milano-Cortina",
+                p1_role: "Manager amministrativo e PMO",
+                p1_challenge_title: "La Sfida",
+                p1_challenge_text: "Un evento complesso in un territorio complesso. Le prime Olimpiadi diffuse su un territorio di oltre 22.000Kmq.",
+                p1_solution_text: "La responsabilità di creare una struttura operativa funzionale e resiliente che garantisca gli standard olimpici nel rispetto delle normative Nazionali senza impattare sui servizi erogati ai cittadini dei territori interessati dall'evento.",
+                p2_title: "Campionato Mondiale di Formula E",
+                p2_role: "Project Leader",
+                p2_challenge_title: "La Sfida",
+                p2_challenge_text: "Creare un'esperienza premium per i fan in un circuito urbano temporaneo con spazio limitato e alte esigenze di sicurezza.",
+                p2_solution_text: "Guidare la progettazione dell'evento, di un'infrastruttura modulare e la sua realizzazione all'interno della città storica facendo convergere le esigenze sportive, quelle dei cittadini e delle aziende. Prevedere in fase di progettazione una legacy materiale ed immateriale reale e duratura.",
+                p3_title: "Maratona di Roma",
+                p3_role: "Sport Area Manager",
+                p3_challenge_title: "La Sfida",
+                p3_challenge_text: "Realizzare, in soli 5 mesi, il più partecipato evento sportivo Italiano.",
+                p3_solution_text: "Creare un evento sicuro, memorabile e impeccabile per i partecipanti (agonisti, non agonisti, volontari etc.), curando ogni dettaglio dall'iscrizione al post-gara. Garantire la sostenibilità economica e fare in modo che la maratona funga anche da potente strumento di marketing per la città, con l'obiettivo di promuovere il turismo e generare un significativo indotto economico. Consolidare il prestigio sportivo della competizione attirando atleti d'élite e a produrre un impatto sociale positivo, coinvolgendo la comunità e supportando cause benefiche.",
+                p4_title: "Global Champions Tour",
+                p4_role: "Responsabile Operativo",
+                p4_challenge_title: "La Sfida",
+                p4_challenge_text: "Garantire strutture e logistica equestre di alto livello in un circuito internazionale multi-location di alto profilo.",
+                p4_solution_text: "Realizzare un evento esclusivo in una location storica al centro della città, renderlo fruibile gratuitamente a tutti mantenendo gli altissimi standard internazionali richiesti. Riportare un evento sportivo con protagonisti i cavalli nel Circo Massimo dopo 2000 anni. Garantire la salute, il benessere e la sicurezza degli animali.",
+                p5_title: "Via Pacis Half Marathon",
+                p5_role: "Sport Area Manager",
+                p5_challenge_title: "La Sfida",
+                p5_challenge_text: "Progettare un grande evento multiculturare e multireligioso con un percorso di gara sicuro e suggestivo attraverso aree culturalmente sensibili",
+                p5_solution_text: "Collaborazione con autorità religiose e laiche presenti nella città di Roma per creare un evento sportivo che sia esempio di rispetto e cololaborazione.",
+                p6_title: "Altri Progetti Rilevanti",
+                p6_role: "Ruoli Vari",
+                p6_challenge_title: "La Sfida",
+                p6_challenge_text: "Adattarsi a diversi format di eventi, dall'ospitalità aziendale ai festival sportivi pubblici.",
+                p6_solution_text: "Concerti, Fly Europe, E1 Series, Allestimenti Natalizi per la città di Roma (Netflix), presentazione Ferrari Roma, dossier per candidature ad eventi internazionali, Giro d'Italia e molti altri. Un approccio gestionale versatile e scalabile focalizzato sui principi di sicurezza, efficienza ed esperienza dei partecipanti.",
+                p7_title: "UEFA Euro 2020",
+                p7_role: "Responsabile delle fan zone",
+                p7_challenge_title: "La Sfida",
+                p7_challenge_text: "Gestire le operazioni per un grande torneo internazionale durante una pandemia globale.",
+                p7_solution_text: "Implementazione di rigidi protocolli di salute e sicurezza, garantendo un ambiente sicuro per spettatori e tifosi senza compromettere l'integrità dell'evento.",
+                p8_title: "Albero di Natale di Roma",
+                p8_role: "Project Manager",
+                p8_challenge_title: "La Sfida",
+                p8_challenge_text: "Progettare e installare l'albero di Natale principale in Piazza Venezia, un progetto pubblico di alta visibilità.",
+                p8_solution_text: "Coordinamento delle autorità cittadine e gli sponsor per realizzare un'installazione natalizia iconica e apprezzata dalla città.",
+                p9_title: "Grandi Concerti",
+                p9_role: "Responsabile del progetto",
+                p9_challenge_title: "La Sfida",
+                p9_challenge_text: "Supervisionare la logistica e la sicurezza per concerti su larga scala con decine di migliaia di spettatori.",
+                p9_solution_text: "Sviluppo di piani completi di gestione della folla e di risposta alle emergenze per i tour di grandi artisti.",
+                skills_title: "Le Mie Competenze Chiave",
+                skills_hard_title: "Competenze Tecniche",
+                skills_soft_title: "Competenze Trasversali",
+                skill_1: "Gestione ed Esecuzione di Progetti",
+                skill_2: "Analisi Dati e Pianificazione Strategica",
+                skill_3: "Gestione Budget e Finanziaria",
+                skill_4: "Logistica e Operazioni",
+                skill_5: "Negoziazione Contratti e Gestione Fornitori",
+                skill_6: "Leadership Innovativa",
+                skill_7: "Comunicazione Efficace",
+                skill_8: "Problem-Solving e Pensiero Critico",
+                skill_9: "Valorizzazione del Team",
+                skill_10: "Attenzione ai Dettagli",
+                press_title: "Dicono di Me",
+                press_quote: `"Un approccio innovativo che sta definendo un nuovo standard per i grandi eventi sportivi. L'esecuzione è stata impeccabile, una lezione magistrale nella gestione moderna degli eventi."`,
+                gallery_title: "Galleria",
+                gallery_videos_title: "Video",
+                gallery_videos_coming_soon: "Contenuti in Arrivo",
+                blog_title: "Blog / Notizie",
+                blog_coming_soon: "Contenuti in Arrivo",
+                contact_title: "Collaboriamo",
+                contact_text: "Stai cercando un leader per elevare il tuo prossimo grande evento sportivo? Contattami per discutere di come il mio approccio unico possa guidare innovazione e successo.",
+                contact_info_email: "Email",
+                contact_info_social: "Seguimi",
+                contact_info_whatsapp: "WhatsApp",
+            }
+        };
+
+        // --- JavaScript for interactivity ---
+        document.addEventListener('DOMContentLoaded', function () {
+            const languageSwitcher = document.getElementById('language-switcher');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const header = document.getElementById('header');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            
+            // Function to update content based on language
+            const setLanguage = (lang) => {
+                document.documentElement.lang = lang;
+                document.querySelectorAll('[data-lang-key]').forEach(element => {
+                    const key = element.getAttribute('data-lang-key');
+                    if (translations[lang] && translations[lang][key]) {
+                        if (element.tagName === 'TEXTAREA' || element.tagName === 'INPUT') {
+                            // Handle placeholders for form elements
+                            const placeholderKey = element.getAttribute('data-lang-key-placeholder');
+                            if(placeholderKey && translations[lang][placeholderKey]) {
+                                element.placeholder = translations[lang][placeholderKey];
+                            }
+                        } else if (key === 'about_text') {
+                             element.innerHTML = translations[lang][key];
+                        }
+                        else {
+                            element.textContent = translations[lang][key];
+                        }
+                    }
+                });
+                // Update placeholders for form elements separately
+                document.querySelectorAll('[data-lang-key-placeholder]').forEach(element => {
+                    const key = element.getAttribute('data-lang-key-placeholder');
+                     if (translations[lang] && translations[lang][key]) {
+                         element.placeholder = translations[lang][key];
+                    }
+                });
+            };
+
+            // Language switcher event
+            languageSwitcher.addEventListener('change', (event) => {
+                setLanguage(event.target.value);
+            });
+
+            // Mobile menu toggle
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when a link is clicked
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+
+            // --- Hide header on scroll down, show on scroll up ---
+            let lastScrollY = window.scrollY;
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                    // Scrolling down
+                    header.classList.add('header-hidden');
+                } else {
+                    // Scrolling up
+                    header.classList.remove('header-hidden');
+                }
+                lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+            });
+
+            // Active nav link on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: "-50% 0px -50% 0px" });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Set initial language
+            setLanguage(languageSwitcher.value);
+        });
+    </script>
+</body>
+</html>
